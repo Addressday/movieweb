@@ -24,7 +24,7 @@ function MovieDetailPage(props) {
 
     useEffect(() => {
 
-        let endpointForMovieInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
+        let endpointForMovieInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=ko-KR`;
         fetchDetailInfo(endpointForMovieInfo)
 
         axios.post('/api/comment/getComments', movieVariable)
@@ -104,7 +104,7 @@ function MovieDetailPage(props) {
                 {/* Actors Grid*/}
 
                 <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}>
-                    <Button onClick={toggleActorView}>Toggle Actor View </Button>
+                    <Button onClick={toggleActorView}>출연배우목록 </Button>
                 </div>
 
                 {ActorToggle &&

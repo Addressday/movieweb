@@ -26,7 +26,7 @@ function FavoritePage() {
                     setFavorites(response.data.favorites)
                     setLoading(false)
                 } else {
-                    alert('Failed to get subscription videos')
+                    alert('영화를 저장하는데 실패하였습니다.')
                 }
             })
     }
@@ -43,7 +43,7 @@ function FavoritePage() {
                 if (response.data.success) {
                     fetchFavoredMovie()
                 } else {
-                    alert('Failed to Remove From Favorite')
+                    alert('영화를 삭제하는데 실패하였습니다.')
                 }
             })
     }
@@ -67,27 +67,27 @@ function FavoritePage() {
             </Popover>
 
             <td>{favorite.movieRunTime} mins</td>
-            <td><button onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}> Remove </button></td>
+            <td><button onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}> 삭제 </button></td>
         </tr>
     })
 
     return (
         <div style={{ width: '85%', margin: '3rem auto' }}>
-            <Title level={2} > Favorite Movies By Me </Title>
+            <Title level={2} > 나의 즐겨찾기 영화 </Title>
             <hr />
             {user.userData && !user.userData.isAuth ?
                 <div style={{ width: '100%', fontSize: '2rem', height: '500px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                    <p>Please Log in first...</p>
-                    <a href="/login">Go to Login page</a>
+                    <p>먼저 로그인을 하십시오....</p>
+                    <a href="/login">로그인 페이지로 이동</a>
                 </div>
                 :
                 !Loading &&
                 <table>
                     <thead>
                         <tr>
-                            <th>Movie Title</th>
-                            <th>Movie RunTime</th>
-                            <td>Remove from favorites</td>
+                            <th>영화 제목</th>
+                            <th>영화 상영시간</th>
+                            <td>즐겨찾기에서 삭제</td>
                         </tr>
                     </thead>
                     <tbody>

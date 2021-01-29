@@ -18,7 +18,7 @@ function Comments(props) {
         e.preventDefault();
 
         if (user.userData && !user.userData.isAuth) {
-            return alert('Please Log in first');
+            return alert('로그인을 하십시오');
         }
 
         const variables = {
@@ -34,7 +34,7 @@ function Comments(props) {
                     setComment("")
                     props.refreshFunction(response.data.result)
                 } else {
-                    alert('Failed to save Comment')
+                    alert('댓글을 저장하는데 실패하였습니다.')
                 }
             })
     }
@@ -42,7 +42,7 @@ function Comments(props) {
     return (
         <div>
             <br />
-            <Title level={3} > Share your opinions about {props.movieTitle} </Title>
+            <Title level={3} > 당신의 의견을 나누세요 {props.movieTitle} </Title>
             <hr />
             {/* Comment Lists  */}
             {console.log(props.CommentLists)}
@@ -58,7 +58,7 @@ function Comments(props) {
 
             {props.CommentLists && props.CommentLists.length === 0 &&
                 <div style={{ display: 'flex', justifyContent:'center', alignItems:'center', height:'200px'}} >
-                    Be the first one who shares your thought about this movie
+                    이 영화에 대한 너의 생각을 공유하는 첫번째 사람이 되어보십시오.
                 </div>
             }
 
@@ -68,10 +68,10 @@ function Comments(props) {
                     style={{ width: '100%', borderRadius: '5px' }}
                     onChange={handleChange}
                     value={Comment}
-                    placeholder="write some comments"
+                    placeholder="댓글을 입력하십시오."
                 />
                 <br />
-                <Button style={{ width: '20%', height: '52px' }} onClick={onSubmit}>Submit</Button>
+                <Button style={{ width: '20%', height: '52px' }} onClick={onSubmit}>제출</Button>
             </form>
 
         </div>
