@@ -15,3 +15,9 @@ export const IMAGE_SIZE = 'w1280'
 
 // w92, w154, w185, w342, w500, w780, original
 export const POSTER_SIZE = 'w500'
+
+// GOOGLE
+export const GOOGLE = {
+    clientID: "620069160279-1diul4tbo168ligotov3nrsrds42e75j.apps.googleusercontent.com",
+    clientSecret: "7rV4NHiD-6Le6uxeJEEtuWuM"
+}

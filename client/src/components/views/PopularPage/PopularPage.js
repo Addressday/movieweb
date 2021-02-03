@@ -42,7 +42,6 @@ function PopularPage() {
         console.log('CurrentPage', CurrentPage)
         endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=ko-KR&page=${CurrentPage + 1}`;
         fetchMovies(endpoint);
-
     }
 
     const handleScroll = () => {

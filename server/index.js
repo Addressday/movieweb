@@ -1,17 +1,9 @@
-const express = require("express")
-const mysql = require("mysql")
-
-const app = express();
-
-app.use(express.json());
-
-const db = mysql.createConnection({
-    user: "root",
-    host: "localhost",
-    password: "130913",
-    database: "movie",
+var mysql = require('mysql');
+const db = mysql.createPool({
+    host : 'localhost',
+    user : 'root',
+    password : '130913',
+    database : 'movie'
 });
 
-app.listen(3001, () => {
-    console.log("running server")
-})
+module.exports = db;
