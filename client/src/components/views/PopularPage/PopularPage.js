@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Typography, Row, Button } from 'antd';
-import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE } from '../../Config'
+import { Typography, Row } from 'antd';
+import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from '../../Config'
 import GridCard from '../../commons/GridCards'
 const { Title } = Typography;
 function PopularPage() {
@@ -9,6 +9,7 @@ function PopularPage() {
     const [Movies, setMovies] = useState([])
     const [Loading, setLoading] = useState(true)
     const [CurrentPage, setCurrentPage] = useState(0)
+    const noImage = require('../../../assets/images/no_image.png');
 
     useEffect(() => {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=ko-KR&page=1`;
@@ -64,7 +65,7 @@ function PopularPage() {
 
             <div style={{ width: '85%', margin: '1rem auto' }}>
 
-                <Title level={2} > Movies by latest </Title>
+                <Title level={2} > 인기영화 </Title>
                 <hr />
                 <Row gutter={[16, 16]}>
                     {Movies && Movies.map((movie, index) => (
@@ -72,7 +73,7 @@ function PopularPage() {
                             <GridCard
                                 image={movie.poster_path ?
                                     `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
-                                    : null}
+                                    : noImage}
                                 movieId={movie.id}
                                 movieName={movie.original_title}
                             />
@@ -81,11 +82,11 @@ function PopularPage() {
                 </Row>
 
                 {Loading &&
-                    <div>Loading...</div>}
+                    <div>로딩...</div>}
 
                 <br />
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <button ref={buttonRef} className="loadMore" onClick={loadMoreItems}>Load More</button>
+                    <button ref={buttonRef} className="loadMore" onClick={loadMoreItems}>더 불러오기</button>
                 </div>
             </div>
 
