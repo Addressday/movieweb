@@ -33,10 +33,10 @@ export default function MovieSearch() {
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <form className="form" onSubmit={movieSearch}>
                             <input className="input" type="text" name="query"
-                                placeholder="i.e. Jurassic Park"
+                                placeholder="예) 쥬라기 월드"
                                 value={query} onChange={(e) => setQuery(e.target.value)}
                             />
-                            <button className="button" type="submit">Search</button>
+                            <button className="button" type="submit">검색</button>
                         </form>
                         <Row gutter={[16, 16]} >
 

@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
         unique: 1 
     },
     password: {
-        type: String,
+        type:String,
         minglength: 5
     },
     role : {

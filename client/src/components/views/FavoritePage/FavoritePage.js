@@ -66,7 +66,7 @@ function FavoritePage() {
                 <td>{favorite.movieTitle}</td>
             </Popover>
 
-            <td>{favorite.movieRunTime} mins</td>
+            <td>{favorite.movieRunTime} 분</td>
             <td><button onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}> 삭제 </button></td>
         </tr>
     })

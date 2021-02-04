@@ -104,7 +104,7 @@ function MovieDetailPage(props) {
                 {/* Actors Grid*/}
 
                 <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}>
-                    <Button onClick={toggleActorView}>출연배우목록 </Button>
+                    <Button onClick={toggleActorView}>출연배우목록</Button>
                 </div>
 
                 {ActorToggle &&

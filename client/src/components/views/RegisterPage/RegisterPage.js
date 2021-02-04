@@ -41,6 +41,7 @@ function RegisterPage(props) {
     <Formik
       initialValues={{
         email: '',
+        nickname: '',
         password: '',
         confirmPassword: ''
       }}
@@ -48,6 +49,8 @@ function RegisterPage(props) {
         email: Yup.string()
           .email('이메일이 존재하지 않습니다.')
           .required('이메일을 입력하십시오.'),
+        nickname: Yup.string()
+          .required('닉네임을 입력하십시오.'),
         password: Yup.string()
           .min(6, '비밀번호는 6자리 이상입니다.')
           .required('비밀빈호를 입력하십시오.'),
@@ -60,6 +63,7 @@ function RegisterPage(props) {
 
           let dataToSubmit = {
             email: values.email,
+            nickname: values.nickname,
             password: values.password,
             image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
           };
@@ -90,7 +94,7 @@ function RegisterPage(props) {
         } = props;
         return (
           <div className="app">
-            <h2>Sign up</h2>
+            <h2>회원가입</h2>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
 
@@ -108,6 +112,23 @@ function RegisterPage(props) {
                 />
                 {errors.email && touched.email && (
                   <div className="input-feedback">{errors.email}</div>
+                )}
+              </Form.Item>
+
+              <Form.Item required label="닉네임">
+                <Input
+                  id="nickname"
+                  placeholder="닉네임을 입력하십시오."
+                  type="text"
+                  value={values.nickname}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.nickname && touched.nickname ? 'text-input error' : 'text-input'
+                  }
+                />
+                {errors.nickname && touched.nickname && (
+                  <div className="input-feedback">{errors.nickname}</div>
                 )}
               </Form.Item>
 
