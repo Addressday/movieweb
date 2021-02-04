@@ -4,6 +4,7 @@ import Auth from "../hoc/auth";
 // pages for this product
 import LandingPage from "./views/LandingPage/LandingPage.js";
 import LoginPage from "./views/LoginPage/LoginPage.js";
+import PasswordFind from './views/LoginPage/PasswordFind';
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
@@ -11,6 +12,7 @@ import NotFound from "./views/NotFound/NotFound";
 import MovieDetail from "./views/MovieDetail/MovieDetail";
 import FavoritePage from "./views/FavoritePage/FavoritePage";
 import PopularPage from "./views/PopularPage/PopularPage";
+
 function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
@@ -20,6 +22,8 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/reset-password" component={Auth(PasswordFind, false)} />
+          <Route exact path="/setting" component={Auth(PasswordFind, false)} />
           <Route exact path="/movie" component={Auth(PopularPage, null)} />
           <Route exact path="/movie/:movieId" component={Auth(MovieDetail, null)} />
           <Route exact path="/favorite" component={Auth(FavoritePage, null)} />
