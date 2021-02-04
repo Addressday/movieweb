@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
 import { Formik } from 'formik';
-import { Form, Icon, Input, Button, Checkbox, Typography } from 'antd';
+import { Form, Icon, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
 function PasswordFind() {
