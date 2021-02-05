@@ -19,10 +19,10 @@ One Paragraph of project description goes here / 프로젝트의 전반적인 �
 
 아래 사항들로 현 프로젝트에 관한 모듈들을 설치할 수 있습니다.
 
-...
+```
 1.npm i /root
 2.npm i /client
-...
+```
 
 ## Running the tests / 테스트의 실행
 
