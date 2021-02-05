@@ -12,7 +12,8 @@ One Paragraph of project description goes here / 프로젝트의 전반적인 �
 아래 사항들이 설치가 되어있어야합니다.
 
 ```
-예시
+git clone 주소복사 OR
+직접 해당 폴더를 다운로드함
 ```
 
 ### Installing / 설치
@@ -20,8 +21,8 @@ One Paragraph of project description goes here / 프로젝트의 전반적인 �
 아래 사항들로 현 프로젝트에 관한 모듈들을 설치할 수 있습니다.
 
 ```
-1.npm i /root
-2.npm i /client
+1.npm i /root 루트에 필요한 모듈 설치
+2.npm i /client 클라이언트(프론트)에 필요한 모듈 설치
 ```
 
 ## Running the tests / 테스트의 실행
