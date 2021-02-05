@@ -44,18 +44,21 @@ function RegisterPage(props) {
     <Formik
       initialValues={{
         email: '',
-        nickname: '',
+        name: '',
         password: '',
         confirmPassword: ''
       }}
       validationSchema={Yup.object().shape({
+        name: Yup.string()
+          .min(6, '아이디는 최소 6자리 이상입니다.')
+          .max(20, "너무 깁니다!")
+          .required('Username is required'),
         email: Yup.string()
           .email('이메일이 존재하지 않습니다.')
           .required('이메일을 입력하십시오.'),
-        nickname: Yup.string()
-          .required('닉네임을 입력하십시오.'),
         password: Yup.string()
-          .min(6, '비밀번호는 6자리 이상입니다.')
+          .min(6, '비밀번호는 최소 6자리 이상입니다.')
+          .max(20, "너무 깁니다!")
           .required('비밀빈호를 입력하십시오.'),
         confirmPassword: Yup.string()
           .oneOf([Yup.ref('password'), null], '비밀번호가 일치해야합니다.')
@@ -65,8 +68,8 @@ function RegisterPage(props) {
         setTimeout(() => {
 
           let dataToSubmit = {
+            name: values.name,
             email: values.email,
-            nickname: values.nickname,
             password: values.password,
             image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
           };
@@ -97,9 +100,26 @@ function RegisterPage(props) {
         } = props;
         return (
           <div className="app">
-          <Title level={2}>회원가입</Title>
+            <Title level={2}>회원가입</Title>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
+
+              <Form.Item required label="아이디">
+                <Input
+                  id="name"
+                  placeholder="Enter your name"
+                  type="text"
+                  value={values.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.name && touched.name ? 'text-input error' : 'text-input'
+                  }
+                />
+                {errors.name && touched.name && (
+                  <div className="input-feedback">{errors.name}</div>
+                )}
+              </Form.Item>
 
               <Form.Item required label="이메일" hasFeedback validateStatus={errors.email && touched.email ? "error" : 'success'}>
                 <Input
